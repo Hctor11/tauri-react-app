@@ -21,6 +21,9 @@
         "open": false,
         "save": true,
         "confirm": true
+      },
+      "path": {
+        "all": true
       }
     },
     "bundle": {
