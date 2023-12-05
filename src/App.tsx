@@ -6,7 +6,10 @@ import SnippetItem from "./components/SnippetItem"
 const App = () => {
   return (
     <div>
-      <h1>Hola los tilines</h1>
+      <SnippetEditor/>
+      <SnippetList/>
+      <SnippetForm/>
+      <SnippetItem/>
     </div>
   ) 
 }
