@@ -1,7 +1,8 @@
 
 const SnippetForm = () => {
   return (
-    <div>SnippetForm</div>
+    <div>
+      <p className="text-red-500">SnipperForm</p></div>
   )
 }
 
