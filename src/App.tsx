@@ -9,7 +9,7 @@ const App = () => {
         <SnippetForm />
         <SnippetList />
       </div>
-      <div className="col-span-9">
+      <div className="col-span-9 flex justify-center items-center">
         <SnippetEditor />
       </div>
     </div>
