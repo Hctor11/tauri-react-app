@@ -24,6 +24,14 @@
       },
       "path": {
         "all": true
+      },
+      "fs": {
+        "readDir": true,
+        "readFile": true,
+        "removeDir": true,
+        "removeFile": true,
+        "scope": ["$DESKTOP/**/**", "$DOCUMENT/*"],
+        "writeFile": true
       }
     },
     "bundle": {
