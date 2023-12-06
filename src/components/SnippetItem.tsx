@@ -1,7 +1,23 @@
+interface Props {
+  SnippetName: string;
+}
 
-const SnippetItem = () => {
+import { useSnippetStore } from "../store/SnippetStore";
+
+const SnippetItem = ({ SnippetName }: Props) => {
+  const setSelectedSnippet = useSnippetStore(state => state.setSelectedSnippet)
+  const selectedSnippet = useSnippetStore(state => state.selectedSnippet)
+
   return (
-    <div>SnippetItem</div>
+    <div className={`text-sm p-1 mt-1 hover:bg-slate-200 hover:cursor-pointer rounded-md ${
+      selectedSnippet === SnippetName ? 
+      "bg-slate-300 " : ""
+    }`}
+    onClick={() => {
+      setSelectedSnippet(SnippetName)
+    }}>
+      <p>{SnippetName}</p>
+    </div>
   )
 }
 

@@ -2,6 +2,7 @@ import { readDir } from "@tauri-apps/api/fs";
 import { useEffect } from "react";
 import { desktopDir } from "@tauri-apps/api/path";
 import { useSnippetStore } from "../store/SnippetStore";
+import SnippetItem from "./SnippetItem";
 
 const SnippetList = () => {
   const setSnippetsNames = useSnippetStore((state) => state.setSnippetNames);
@@ -17,9 +18,13 @@ const SnippetList = () => {
     loadFiles();
   }, []);
 
-  return <div>{
-      snippestNames.map((name) => <div key={name} className="text-sm">{name}</div>)
-    }</div>;
+  return (
+    <div>
+      {snippestNames.map((name) => (
+        <SnippetItem key={name} SnippetName={`${name}`} />
+      ))}
+    </div>
+  );
 };
 
 export default SnippetList;
