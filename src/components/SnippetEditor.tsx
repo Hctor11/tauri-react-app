@@ -1,7 +1,9 @@
+import { Editor } from "@monaco-editor/react"
 
 const SnippetEditor = () => {
   return (
-    <div>SnippetEditor</div>
+      <Editor
+      />
   )
 }
 
