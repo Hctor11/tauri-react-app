@@ -7,26 +7,33 @@ interface Props {
 }
 
 const SnippetItem = ({ SnippetName }: Props) => {
-  const setSelectedSnippet = useSnippetStore(state => state.setSelectedSnippet)
-  const selectedSnippet = useSnippetStore(state => state.selectedSnippet)
+  const setSelectedSnippet = useSnippetStore(
+    (state) => state.setSelectedSnippet
+  );
+  const selectedSnippet = useSnippetStore((state) => state.selectedSnippet);
 
   return (
-    <div className={`text-sm p-1 mt-1 hover:bg-slate-200 hover:cursor-pointer rounded-md ${
-      selectedSnippet?.name === SnippetName ? 
-      "bg-slate-300 " : ""
-    }`}
-    onClick={async () => {
-      const dektopDirectory = await desktopDir(); 
-      const filePath = await join(dektopDirectory, "snippets", `${SnippetName}.txt`)
+    <div
+      className={`text-sm p-1 mt-1 hover:bg-slate-200 hover:cursor-pointer rounded-md ${
+        selectedSnippet?.name === SnippetName ? "bg-slate-300 " : ""
+      }`}
+      onClick={async () => {
+        const dektopDirectory = await desktopDir();
+        
+        const filePath = await join(
+          dektopDirectory,
+          "snippets",
+          `${SnippetName}.txt`
+        );
 
-      const snippet =  await readTextFile(filePath)
+        const snippet = await readTextFile(filePath);
 
-      console.log(snippet)
-
-    }}>
+        setSelectedSnippet({ name: SnippetName, code: snippet });
+      }}
+    >
       <p>{SnippetName}</p>
     </div>
-  )
-}
+  );
+};
 
-export default SnippetItem
+export default SnippetItem;

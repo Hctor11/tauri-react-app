@@ -14,7 +14,7 @@ const SnippetForm = () => {
         e.preventDefault();
         const desktopPath = await desktopDir();
         console.log(desktopPath);
-        await writeTextFile(`${desktopPath}snippets/${snippetName}.txt`, "death classic");
+        await writeTextFile(`${desktopPath}snippets/${snippetName}.txt`, "");
         setSnippetName("");
         addSnippetName(snippetName);
       }}
