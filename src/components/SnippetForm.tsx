@@ -1,10 +1,12 @@
 import { writeTextFile } from "@tauri-apps/api/fs";
 import { desktopDir } from "@tauri-apps/api/path";
 import { useState } from "react";
+import { useSnippetStore } from "../store/SnippetStore";
 
 const SnippetForm = () => {
 
   const [snippetName, setSnippetName] = useState("");
+  const addSnippetName = useSnippetStore((state) => state.addSnippetName);
 
   return (
     <form
@@ -14,6 +16,7 @@ const SnippetForm = () => {
         console.log(desktopPath);
         await writeTextFile(`${desktopPath}snippets/${snippetName}.txt`, "death classic");
         setSnippetName("");
+        addSnippetName(snippetName);
       }}
     >
       <input
